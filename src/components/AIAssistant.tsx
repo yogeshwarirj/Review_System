@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Sparkles, Heart } from 'lucide-react';
 import { aiActor, AIResponse, ReviewContext } from '../services/aiActor';
+import Avatar, { AvatarPresets } from './Avatar';
 
 interface AIAssistantProps {
   context: ReviewContext;
@@ -64,9 +65,12 @@ export default function AIAssistant({ context, isVisible = true, onToggle }: AIA
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <Sparkles className="w-5 h-5" />
-                </div>
+                <Avatar
+                  {...AvatarPresets.Alex}
+                  size="md"
+                  showStatus={true}
+                  className="ring-2 ring-white ring-opacity-30"
+                />
                 <div>
                   <h3 className="font-semibold">Alex - Your AI Assistant</h3>
                   <p className="text-xs opacity-90">Here to help you succeed!</p>
@@ -96,11 +100,11 @@ export default function AIAssistant({ context, isVisible = true, onToggle }: AIA
               <div className="space-y-4">
                 {/* Main Message */}
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm">
-                      {aiActor.getEmoji(response.emotion)}
-                    </span>
-                  </div>
+                  <Avatar
+                    {...AvatarPresets.Alex}
+                    size="sm"
+                    className="flex-shrink-0"
+                  />
                   <div className="flex-1">
                     <p className="text-gray-800 text-sm leading-relaxed">
                       {response.message}

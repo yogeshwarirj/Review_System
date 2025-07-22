@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, MessageCircle } from 'lucide-react';
 import { aiActor, AIResponse } from '../services/aiActor';
+import Avatar, { AvatarPresets } from './Avatar';
 
 interface InteractiveChatProps {
   isOpen: boolean;
@@ -124,7 +125,12 @@ export default function InteractiveChat({ isOpen, onClose, context }: Interactiv
               >
                 {message.sender === 'ai' && (
                   <div className="flex items-center space-x-1 mb-1">
-                    <span className="text-xs">Alex</span>
+                    <Avatar
+                      {...AvatarPresets.Alex}
+                      size="sm"
+                      className="mr-1"
+                    />
+                    <span className="text-xs font-medium">Alex</span>
                     {message.emotion && (
                       <span className="text-xs">
                         {aiActor.getEmoji(message.emotion as any)}
@@ -145,9 +151,12 @@ export default function InteractiveChat({ isOpen, onClose, context }: Interactiv
               <div className="bg-gray-100 px-4 py-2 rounded-2xl">
                 <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                </div>
+                <Avatar
+                  {...AvatarPresets.Alex}
+                  size="md"
+                  showStatus={true}
+                  className="ring-2 ring-white ring-opacity-30"
+                />
               </div>
             </div>
           )}

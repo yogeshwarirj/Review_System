@@ -3,6 +3,7 @@ import { Edit3, Mic, Video, Star, ArrowRight, MessageCircle } from 'lucide-react
 import { ReviewMode } from '../App';
 import { ReviewContext } from '../services/aiActor';
 import InteractiveChat from './InteractiveChat';
+import Avatar, { AvatarPresets } from './Avatar';
 
 interface WelcomeScreenProps {
   onModeSelect: (mode: ReviewMode) => void;
@@ -50,9 +51,12 @@ export default function WelcomeScreen({ onModeSelect, aiContext }: WelcomeScreen
       <div className="max-w-6xl w-full">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-6">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full">
-              <Star className="w-8 h-8 text-white" />
-            </div>
+            <Avatar
+              {...AvatarPresets.Belle}
+              size="xl"
+              showStatus={true}
+              className="ring-4 ring-blue-200"
+            />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Hi this is Belle, your review assistant 👋
