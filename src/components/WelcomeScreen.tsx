@@ -59,7 +59,7 @@ export default function WelcomeScreen({ onModeSelect, aiContext }: WelcomeScreen
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Hi this is Belle, your review assistant 👋
+            Hi this is Alex, your review assistant 👋
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             I'm here to make sharing your feedback easy and enjoyable. Choose your preferred format below:
